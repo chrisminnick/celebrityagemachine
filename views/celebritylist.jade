@@ -1,0 +1,17 @@
+extends layout
+
+block content
+    .container
+    h1= title
+    p All Celebrities
+        .row
+            .col-sm-8
+                ul
+                    each celebrity, i in celebritylist
+                        li
+                            a(href="#{celebrity._id}")= celebrity.first_name + " " + celebrity.last_name + " "
+                            span.birthdate= "(" + celebrity.birthdate + ")"
+            .col-sm-4
+                p Welcome to the Celebrity Age Machine! Please use the handy celebrity finder above, or one of our preset searches, to locate age information for over 3,000 celebrities. Don't see someone who you think should be included? Let us know!
+                include includes/search.jade
+
