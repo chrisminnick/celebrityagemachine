@@ -6,11 +6,11 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var mongo = require('mongodb');
-var monk = require('monk');
-var db = monk('localhost:27017/celebritydata');
-
+var mongo = require('mongoskin');
+var db = mongo.db("mongodb://localhost:27017/celebritydata", {native_parser:true});
 var routes = require('./routes/index');
 var users = require('./routes/users');
+var celebrities = require('./routes/celebrities');
 
 var app = express();
 
@@ -33,6 +33,7 @@ app.use(function(req,res,next){
 
 app.use('/', routes);
 app.use('/users', users);
+app.use('/celebrities', celebrities);
 
 /// catch 404 and forward to error handler
 app.use(function (req, res, next) {

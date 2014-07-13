@@ -6,7 +6,31 @@ block content
     p Welcome to #{title}
         .row
             .col-sm-8
-                p Hello World!
+                // CELEBRITY LIST
+                h2 Celebrity List
+                #celebList
+                    table
+                        thead
+                            th Name
+                            th Birthdate
+                            th Delete?
+                        tbody
+                // /USER LIST
+                // USER INFO
+                #userInfo
+                   h2 Celebrity Details
+                   p
+                       strong Name:
+                       |  <span id='celebrityInfoFirstName'></span> <span id='celebrityInfoLastName'></span>
+                       br
+                       strong Birthdate:
+                       |  <span id='celebrityInfoBirthdate'></span>
+                // /USER INFO
+
+                p
+                    a(href="celebrities/")= "List all celebrities"
+                p
+                    a(href="celebrities/add")= "Add a new celebrity"
             .col-sm-4
                 p Welcome to the Celebrity Age Machine! Please use the handy celebrity finder above, or one of our preset searches, to locate age information for over 3,000 celebrities. Don't see someone who you think should be included? Let us know!
                 include includes/search.jade
